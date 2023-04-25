@@ -8,12 +8,12 @@ class Program
 
     static void Main(string[] args)
     {
-        moveFiles(@"SourceFolder");
+        MoveFiles(@"SourceFolder");
 
 
 
     }
-    static void moveFiles(string source)
+    static void MoveFiles(string source)
     {
         string destFolder = @"DestinationFolder";
         string sourceFolder = source;
@@ -21,7 +21,7 @@ class Program
         string[] folders = Directory.GetDirectories(sourceFolder);
         foreach (string folder in folders)
         {
-            moveFiles(folder);
+            MoveFiles(folder);
         }
         foreach (string file in files)
         {
@@ -31,12 +31,12 @@ class Program
                
                 //File.Copy(file, @destFolder + "\\" + @changeString(file));
                 //use copy to copy and move to move
-                File.Move(file, @destFolder + "\\" + @changeString(file));
+                File.Move(file, @destFolder + "\\" + @ChangeString(file));
             }
         }
     }
 
-    static string changeString(string str)
+    static string ChangeString(string str)
     {
         int index = -1;
         for(int i = 0; i < str.Length; i++) 
